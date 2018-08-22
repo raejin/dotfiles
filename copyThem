@@ -1,0 +1,6 @@
+#!/bash/zsh
+cd ~/.config;
+mkdir nvim;
+cp ~/dotfiles/init.vim .;
+cd ~/dotfiles;
+cp .vimrc .zshrc .tmux.conf .bashrc ~/;
