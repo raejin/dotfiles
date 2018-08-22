@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ~;
+wget https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz;
+tar -xzf tmux-2.7.tar.gz;
+
+sudo apt-get install libncurses5-dev libevent-dev;
+mv ~/tmux-2.7 ~/tmux;
+cd ~/tmux;
+./configure && make;
+sudo make install;
