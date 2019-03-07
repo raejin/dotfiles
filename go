@@ -1,4 +1,4 @@
-#!/bash/zsh
+#!/bin/zsh
 ./getPrezto;
 ./getFzf;
 ./getTmux;

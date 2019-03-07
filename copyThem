@@ -1,4 +1,4 @@
-#!/bash/zsh
+#!/bin/zsh
 cd ~/.config;
 mkdir nvim;
 cp ~/dotfiles/init.vim .;
