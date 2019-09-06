@@ -1,0 +1,67 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Initialize Rbenv if it's installed
+if [ -d "$HOME/.rbenv/bin" ]; then
+        export PATH="$HOME/.rbenv/bin:$PATH"
+        eval "$(rbenv init -)"
+fi
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/osquery/bin:/opt/airbnb/bin:/opt/puppetlabs/bin:/usr/local/munki:$PATH"
+
+# why would you type 'cd dir' if you could just type 'dir'?
+setopt AUTO_CD
+
+# 10 second wait if you do something that will delete everything.  I wish I'd had this before...
+setopt RM_STAR_WAIT
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+#export EDITOR="subl -n -w"
+#export NVM_DIR="$HOME/.nvm"
+#  . "/usr/local/opt/nvm/nvm.sh"
+
+alias sc="npm run -s sanity-check --"
+#alias tmux="TERM=xterm-256color tmux -2"
+
+# for fixing color to the right of cursor issue regarding autosuggestion
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
+alias gam="gc --amend"
+alias bi="bundle install"
+alias b="bundle exec"
+alias g="git"
+
+alias rere="~/repos/airbnb; sudo service monorail restart; sudo service monorail-webpack restart; sudo service monorail-hypernova restart"
+#alias inst="~/repos/airbnb; npm install; bundle install; rere"
+alias rw="sudo service monorail-webpack restart"
+alias rh="sudo service monorail-hypernova restart"
+alias rr="sudo service monorail restart"
+alias tw="tail -f /var/log/monorail-webpack/current"
+alias vim="nvim"
+alias gst="git status -u"
+alias gfm="git fetch origin master"
+alias gd="git diff --staged"
+alias ga="git add"
+alias ash="lab ssh"
+alias ccb="o https://git.musta.ch/airbnb/$(pwd | xargs basename)/pull/new/$(git branch | grep \* | cut -d ' ' -f2)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fnm
+eval "$(fnm env --multi)"
+
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper {{{
+# Airlab will only make edits inside these delimiters.
+
+# Source Airlab's shell integration, if it exists.
+if [ -e ~/.airlab/shellhelper.sh ]; then
+  source ~/.airlab/shellhelper.sh
+fi
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
