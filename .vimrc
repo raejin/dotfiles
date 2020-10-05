@@ -16,6 +16,7 @@ Plug 'honza/vim-snippets'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -162,13 +163,4 @@ map <leader>bp :bp<cr>
 imap <C-g> <Esc>
 
 map <C-t> :GFiles<CR>
-map <C-f> :call JsBeautify()<cr>
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+map <leader>ff :call JsBeautify()<cr>
