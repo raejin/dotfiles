@@ -1,3 +1,5 @@
+compaudit | xargs chmod go-w
+
 #
 # Executes commands at the start of an interactive session.
 #
